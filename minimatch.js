@@ -109,7 +109,6 @@ function Minimatch (pattern, options) {
   }
 
   if (!options) options = {}
-  pattern = pattern.trim()
 
   // windows support: need to use /, not \
   if (path.sep !== '/') {

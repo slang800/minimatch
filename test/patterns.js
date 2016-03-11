@@ -748,6 +748,28 @@ testCases.push(
     matches: [],
     files: files,
     regexp: '/^(?:(?=.)\\[a-0\\][a-Ā])$/'
+  },
+
+  'filenames with leading/trailing whitespace',
+  {
+    pattern: '  test  ',
+    matches: ['  test  '],
+    files: ['  test  '],
+    regexp: '/^(?:\\ \\ test\\ \\ )$/'
+  },
+
+  'filenames that are whitespace',
+  {
+    pattern: '  ',
+    matches: ['  '],
+    files: ['  '],
+    regexp: '/^(?:\\ \\ )$/'
+  },
+  {
+    pattern: '   *',
+    matches: ['    '],
+    files: ['  ', '    '],
+    regexp: '/^(?:(?=.)   [^\/]*?)$/'
   }
 )
 
