@@ -244,7 +244,10 @@ function braceExpand (pattern, options) {
     return [pattern]
   }
 
-  return expand(pattern)
+  return expand(pattern).map(function (part) {
+    // brace-expansion consumes a layer of escapes, so we need to add that back
+    return part.replace(/\\/g, '\\\\')
+  })
 }
 
 // parse a component of the expanded set.
