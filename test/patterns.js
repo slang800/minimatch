@@ -770,6 +770,14 @@ testCases.push(
     matches: ['    '],
     files: ['  ', '    '],
     regexp: '/^(?:(?=.)   [^\/]*?)$/'
+  },
+
+  'backslashes in brace-expansions',
+  {
+    pattern: '{a,\\\\d\\\\,c}',
+    matches: ['a', '\\d\\'],
+    files: ['a', 'd', '\\d\\'],
+    regexp: '/^(?:a|\\\\d\\\\|c)$/'
   }
 )
 
